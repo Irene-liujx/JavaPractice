@@ -87,3 +87,50 @@ public class Finder {
 	}
 }
 
+2//汽水瓶问题
+import java.util.*;
+import java.io.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            if(n == 0){
+                break;
+            }
+            System.out.println(countGlass(n));
+        }
+    }
+    public static int countGlass(int n){
+        int count = 0;
+        while(n >= 3){
+            int temp = n / 3;
+        count += temp;
+        int h = n % 3;
+        n = temp + h;
+        }
+    if(n == 2){
+        count += 1;
+    }
+    return count;
+    }
+}
+
+//数组中的逆序对
+import java.util.*;
+
+public class AntiOrder {
+    public int count(int[] A, int n) {
+        // write code here
+        int m = 0;
+        for(int i = 1;i < n;i++){
+            for(int j = 0;j < i;j++){
+                if(A[j] > A[i]){
+                    m += 1;
+                }
+            }
+        }
+        return m;
+    }
+}
+
