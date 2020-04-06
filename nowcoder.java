@@ -134,3 +134,63 @@ public class AntiOrder {
     }
 }
 
+
+
+3//合法括号序列判断
+import java.util.*;
+
+public class Parenthesis {
+    public boolean chkParenthesis(String A, int n) {
+        // write code here
+        LinkedList<Character> st = new LinkedList<Character>();
+        for(int i = 0;i < n;i++){
+            if(A.charAt(i) != '(' && A.charAt(i) != ')'){
+                return false;
+            }
+            if(A.charAt(i) == '('){
+                st.add('(');
+            }
+            if(A.charAt(i) == ')'){
+                if(st.isEmpty()){
+                    return false;
+                }else{
+                     st.removeLast();
+                }
+            }
+            }
+        if(st.isEmpty()){
+                return true;
+            }else{
+                return false;
+        }
+    }
+}
+
+//字符串找出连续最长的数字串
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println(theNums(sc.nextLine()));
+    }
+    public static String theNums(String s){
+        int max = 0;//最长数字串
+        int length = 0;//数字串长度
+        int end = 0;//数字串最后一个数的下标
+        char[] sc = s.toCharArray();
+        for(int i = 0;i < sc.length;i++){
+            if(s.charAt(i) >= '0' && s.charAt(i) <= '9'){
+                length++;
+                if(length > max){
+                    max = length;
+                    end = i;
+                }
+            }else{
+                length = 0;
+            }
+        }
+        return s.substring(end - max + 1,end + 1);
+    }
+}
+
+
