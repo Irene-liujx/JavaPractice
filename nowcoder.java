@@ -194,3 +194,101 @@ public class Main{
 }
 
 
+4//买苹果
+(1)
+import java.util.Scanner;
+
+public class Main{
+    public static int buyApple(int n){
+        if(n < 6 || n % 2 == 1){
+            return -1;
+        }
+        int i = n / 8; 
+        int m = 8 * (i + 1);
+        int a = m - n;
+        if(n % 8 == 0){
+            return i;
+        }
+        else if(a / 2 <= i + 1 && a % 2 == 0){
+            return i+1;
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(Main.buyApple(n));
+    }
+}
+
+(2)
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(buyApple(n));
+    }
+    public static int buyApple(int n){
+       // int k = 0;
+        if(n % 2 != 0){
+            return -1;
+        }
+        if(n % 8 == 0){
+            return n / 8;
+        }
+        for(int i = n / 8;i >= 0;i--){
+            for(int j = 1; j <= n / 6;j++){
+                if(i * 8 + j * 6 == n){
+                  return i +j;
+                }
+            }
+        }
+        return -1;
+    }
+}
+
+//删除公共字符
+(1)
+import java.util.Scanner;
+ 
+public class Main {
+	
+	
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = "";
+        String str2 = "";
+        ArrayList<Character> list = new ArrayList<>();
+        str1 = sc.nextLine();
+        str2 = sc.nextLine();
+        for (int i = 0; i < str1.length(); i++) {
+            if (!(str2.contains(str1.charAt(i) + ""))) {
+                list.add(str1.charAt(i));
+            }
+        }
+        for (int k = 0; k < list.size(); k++) {
+            System.out.print(list.get(k) + "");
+        }
+    }
+
+(2)
+ //使用正则表达式解题
+
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        while (s.hasNext())
+        {
+            String s1 = s.nextLine();
+            String s2 = s.nextLine();
+            String del = "["+s2+"]"; // 字符串类型的正则表达式
+            System.out.println(s1.replaceAll(del, ""));
+        }
+    }
+}
+
+
+
