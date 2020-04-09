@@ -292,3 +292,66 @@ public class Main {
 
 
 
+5//神奇的口袋
+
+import java.util.Scanner;
+
+public class Main{
+    static int[] weight;
+    static int n;
+    static int count = 0;
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            n = sc.nextInt();
+            weight = new int[n + 1];
+            for(int i = 1;i <= n;i++){
+                weight[i] = sc.nextInt();
+            }
+            count(40,n);
+            System.out.println(count);
+        }
+    }
+    //递归  s:物品剩余重量   n:可选择物品个数
+    public static void count(int s,int n){
+         //刚好装满
+        if(s == 0){
+            count++;
+            return;
+        }
+         //如果s<0或者n<1 表示不成立
+        if(s < 0 || (s >0 && n < 1)){
+          return;
+        }
+        //装入当前物品,减去当前的物品的重量，用剩下的s进行递归
+        count(s - weight[n],n - 1);
+        //当前物品无解时,则跳过当前物品，从n - 1个开始递归
+        count(s,n - 1);
+    }
+}
+
+
+//用两个栈实现队列(push和pop操作)
+
+import java.util.Stack;
+
+public class Solution {
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+    
+    public void push(int node) {
+       stack1.push(node);
+    }
+    //队列:先进先出
+    public int pop() {
+        if(!stack2.isEmpty()){
+            return stack2.pop();
+        }
+        while( !stack1.isEmpty()){
+            stack2.push(stack1.pop());
+        }
+        return stack2.pop();
+    }
+}
+
+
