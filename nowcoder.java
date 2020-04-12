@@ -423,3 +423,22 @@ public class Solution {
  }
 
 
+
+7//不要二
+//每个4行中， i或i＋1行的蛋糕数为 (n / 4) * 2 + (n % 4 < 2 ? n % 4 : 2) i＋2或i+3行的蛋糕数为((n - 2) / 4) * 2 + ((n - 2) % 4 < 2 ? (n - 2) % 4 : 2) 然后算清楚一共有多少个完整的4行
+//共有m / 4个。 需要注意的就是处理行数除4有余数的情况，把最后可能剩余的1～3 行加进去即可。
+
+import java.util.*; 
+public class Main{ 
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in); 
+	int m = sc.nextInt(), n = sc.nextInt(); 
+	int evenICount = (n / 4) * 2 + (n % 4 < 2 ? n % 4 : 2); 
+	int oddICount = ((n - 2) / 4) * 2 + ((n - 2) % 4 < 2 ? (n - 2) % 4 : 2); 
+	int ans = m / 4 * (evenICount + oddICount) * 2; 
+	if(m % 4 > 0) ans += evenICount; 
+	if(m % 4 > 1) ans += evenICount;
+	if(m % 4 > 2) ans += oddICount; 
+	System.out.println(ans); 
+	} 
+}
