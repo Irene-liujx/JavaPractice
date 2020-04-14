@@ -487,3 +487,27 @@ public class Main{
         }
     }
 }
+
+//找出n个数中最小的K个
+ import java.util.Scanner; 
+ public class Main {
+        public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            String[] str = sc.nextLine().split(" ");
+            int k = Integer.parseInt(str[str.length-1]);//保存k的值
+            int[] array = new int[str.length - 1];
+            for(int i = 0; i < str.length-1; i++){		//把string[] 变为int[]，只遍历前n个数加入数组，n+1为k
+                array[i] = Integer.parseInt(str[i]);
+            }
+            Arrays.sort(array); 
+            for(int i = 0; i < k; i++){
+                System.out.print(array[i]);		//先输出数字，后面跟着空格
+                if(i != k-1){
+                    System.out.print(" ");		//需要每个输出之间带空格，但是最后一个输出后不应该有空格
+                }
+            }
+        }
+    }
+}
+
