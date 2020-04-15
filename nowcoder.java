@@ -511,3 +511,22 @@ public class Main{
     }
 }
 
+
+9//末尾0的个数
+ import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            int count = 0;
+            for(int i = 5;i <= n;i *= 5){
+                count += n/i;
+            }
+            System.out.println(count);
+        }
+    }
+}
+
+
+
