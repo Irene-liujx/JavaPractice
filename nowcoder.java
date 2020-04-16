@@ -544,3 +544,21 @@ public class Main{
         }
     }
 }
+
+
+10//fibonacci数列
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a = 0,b = 1;
+        while(b <= n){
+            int temp = b + a;
+            a = b;
+            b = temp;
+		}
+        System.out.print((b-n)>(n-a)?n-a:b-n);
+    }
+}
