@@ -623,3 +623,17 @@ public class Solution {
     }
 }
 
+
+12//无缓存交换
+//异或:当且仅当只有一个表达式的某位上为 1 时，结果的该位才为 1,跟1异或取反,跟自己异或置0
+import java.util.*;
+
+public class Exchange {
+    public int[] exchangeAB(int[] AB) {
+        // write code here
+        AB[0] = AB[0] ^ AB[1];
+        AB[1] = AB[0] ^ AB[1];
+        AB[0] = AB[0] ^ AB[1];
+        return AB;
+    }
+}
