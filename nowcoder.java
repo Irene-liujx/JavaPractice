@@ -637,3 +637,31 @@ public class Exchange {
         return AB;
     }
 }
+
+
+
+//生成格雷码
+
+import java.util.*;
+
+public class GrayCode {
+    public String[] getGray(int n) {
+        // write code here
+         if(n == 1)
+        {
+            return new String[] {"0", "1"};
+        }
+        else
+        {
+            String[] preArr = getGray(n-1);	 //要算n个格雷码，先算上一个的格雷码
+            String[] curArr = new String[2*preArr.length]; 		//存放现在n的格雷码，长度为上一个的二倍
+            for (int i=0; i<preArr.length; i++)
+            {
+                curArr[i] = "0"+preArr[i]; 		//在前面一半的前面加一个零
+                curArr[curArr.length-1-i] = "1"+preArr[i]; 		//在后面一半的第一个数字前加一个一
+            }
+            return curArr;
+        }
+    }
+}
+
