@@ -773,3 +773,20 @@ public class Main {
     }
 }
 
+15//另类加法
+import java.util.*;
+
+public class UnusualAdd {
+    public int addAB(int A, int B) {
+        // write code here
+        int i ,j;
+        while(B != 0 ){
+            i = A ^ B;
+            j = (A & B) << 1;
+            A = i;
+            B = j;
+        }
+        return A;
+    }
+}
+
