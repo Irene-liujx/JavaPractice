@@ -739,3 +739,37 @@ public class Main{
     }
  
 }
+
+
+
+//尼科彻斯定理
+import java.util.*;
+import java.io.*;
+ 
+public class Main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner (System.in);
+        while (sc.hasNext()) {
+            int in = sc.nextInt();
+            sc.nextLine();
+            getString(in);
+        }
+        sc.close();
+    }
+     
+    public static void getString(int in) {
+        int cur = in * (in - 1) + 1; 
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < in; i++) {
+            if (i == in - 1) {
+                sb.append(cur);
+            }
+            else {
+                sb.append(cur + "+");
+            }
+            cur += 2;
+        }
+        System.out.println(sb);
+    }
+}
+
