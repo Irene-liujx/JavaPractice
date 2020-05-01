@@ -1104,3 +1104,55 @@ public class Gift {
     }
 }
 
+
+//链表分割
+import java.util.*;
+
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Partition {
+    public ListNode partition(ListNode pHead, int x) {
+        // write code here
+        ListNode cur = pHead;
+        ListNode sx1 = null;
+        ListNode sx2 = null;
+        ListNode bx1 = null;
+        ListNode bx2 = null;
+        while(cur != null){
+            if(cur.val < x){
+                if(sx1 == null){
+                    sx1 = cur;
+                }else{
+                    sx2.next = cur;
+                }
+                sx2 = cur;
+            }else{
+                if(bx1 == null){
+                    bx1 = cur;
+                }else{
+                    bx2.next = cur;
+                }
+                bx2 = cur;
+            }
+            cur = cur.next;
+        }
+        if(sx1 == null){
+            return bx1;
+        }else{
+            sx2.next = bx1;
+            if(bx2 != null){
+                bx2.next = null;
+            }
+            
+        }
+        return sx1;
+    }
+}
+
