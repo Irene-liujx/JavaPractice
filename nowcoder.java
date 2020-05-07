@@ -1302,3 +1302,38 @@ public class Plus {
 	}
 
 
+
+
+23//二叉树平衡检查
+//递归求解
+import java.util.*;
+
+/*
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+    public TreeNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Balance {
+    public boolean isBalance(TreeNode root) {
+        // write code here
+         if(root==null){
+            return true;
+        }
+        int left = getTreeHeight(root.left);
+        int right = getTreeHeight(root.right);
+        return Math.abs(left - right) <= 1;
+    }
+
+    public static int getTreeHeight(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        return Math.max(getTreeHeight(root.left),getTreeHeight(root.right))+1;
+    }
+}
+
+
