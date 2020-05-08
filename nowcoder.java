@@ -1445,3 +1445,41 @@ public class Main {
          
     }
 }
+
+
+//最高分是多少
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int n = sc.nextInt();//学生数量
+            int m = sc.nextInt();//老师可操作的次数
+            int[] stu = new int[n];//学生成绩
+            for(int i = 0; i < n; i++) {
+                stu[i] = sc.nextInt();
+            }
+            for(int i = 0; i < m; i++) {
+                String c = sc.next();
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                if(c.equals("Q")) {
+                    int s = Math.min(a, b);//开始下标
+                    int e = Math.max(a, b);//结束下标
+                    //id从1开始的，而数组下标是从0开始的
+                    //而且还要包括A和B，所以下标范围是[s-1, e)
+                    int max = stu[s-1];
+                    for(int j = s; j < e; j++) {
+                        max = Math.max(max, stu[j]);
+                    }
+                    System.out.println(max);
+                }
+                if(c.equals("U")) {
+                    stu[a-1] = b;
+                }
+            }
+        }
+    }
+}
