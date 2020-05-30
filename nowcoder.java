@@ -2727,3 +2727,33 @@ public class Replacement {
 }
 
 
+
+
+
+39//二维数组打印
+import java.util.*;
+
+public class Printer {
+	public int[] arrayPrint(int[][] arr, int n) {
+		
+		// 创建数组,行数数和列数分别条件判断
+		int[] result = new int[n * n];
+		int row = 0, col = n - 1, index = 0;
+		while(row < n) {
+			while(row < n && col < n) {
+				result[index++] = arr[row][col];
+				row++;
+				col++;
+			}
+			if(row < col) {
+				col -= row + 1;
+				row = 0; 
+			} else {
+				row -= col - 1;
+				col = 0;
+			}
+		}
+		return result;
+	}
+}
+
