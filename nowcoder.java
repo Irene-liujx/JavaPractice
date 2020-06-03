@@ -2852,3 +2852,36 @@ public class Main {
 	} 
 }
 
+
+
+//句子逆序
+import java.util.*; 
+
+public class Main { 
+	public static void main(String[] args) { 
+		Scanner cin = new Scanner(System.in); 
+		while (cin.hasNextLine()) { 
+			String str = cin.nextLine(); 
+			System.out.println(reverse(str)); 
+		} 
+	}
+	
+	public static String reverse(String s ){ 
+		String str = "" ,result = ""; 
+		// 从后往前扫描，遇到空格就处理一个单词。 
+		for(int i=s.length()-1;i>=0; i--){ 
+			if(s.charAt(i)!=' ') 
+				str+=s.charAt(i);
+			else{
+				for(int j=str.length()-1 ; j>=0 ;j--) 
+					result+=str.charAt(j); 
+				result+=" "; 
+				str=""; 
+			} 
+		}
+		//再把最后一个单词追加到结果串上。 
+		for(int j=str.length()-1 ; j>=0 ;j--) 
+			result+=str.charAt(j); 
+		return result; 
+	} 
+}
