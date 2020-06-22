@@ -3567,6 +3567,7 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc  = new Scanner(System.in);
+		
         while(sc.hasNext()){
             int n = sc.nextInt();  // n table
             int m = sc.nextInt();  // m customers
@@ -3584,17 +3585,15 @@ public class Main{
             Arrays.sort(cus, new Comparator<int[]>(){
 
 	        public int compare(int[] a, int[] b){
-
-
-
 	           return b[1]-a[1];
-
-}
+			}
+			
             });
             
             long res = 0L;
             int index = 0;
             boolean[] tableb = new boolean[n];
+			
             for(int i=0;i<m;i++){
                 if(cus[i][0]>table[n-1])
                     continue;
@@ -3609,6 +3608,7 @@ public class Main{
             
             System.out.println(res);
         }
+		
         sc.close();
     }
     
@@ -3616,6 +3616,7 @@ public class Main{
         int low=0;
         int high=num.length-1;
         int mid=0;
+		
         while(low<=high){
             mid=(high+low)>>1;
             if(num[mid]>=tar)
