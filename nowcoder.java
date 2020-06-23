@@ -3628,3 +3628,29 @@ public class Main{
         return low;
     }
 }
+
+
+
+
+48//左右最值最大差
+//先找到最大值,再拿最大值和两端的值进行相减
+import java.util.*; 
+
+public class MaxGap {
+	public int findMaxGap(int[] A, int n) {
+		int max=0; 
+		
+		//找出数组中的最大值
+		for(int i=0;i<A.length;i++) {
+			if(A[i]>max)
+				max=A[i]; 
+		}
+		
+		int ans1=max-A[0]; 
+		int ans2=max-A[n-1]; 
+		if(ans1>ans2)
+			return ans1; 
+		else
+			return ans2; 
+	} 
+}
