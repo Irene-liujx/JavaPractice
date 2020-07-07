@@ -213,6 +213,7 @@ class MaxQueue {
  
  
  //连续子数组的最大和
+ //动态规划
  class Solution {
     public int maxSubArray(int[] nums) {
         int res = nums[0];
@@ -221,5 +222,19 @@ class MaxQueue {
             res = Math.max(res, nums[i]);
         }
         return res;
+    }
+}
+
+
+
+//股票的最大利润
+class Solution {
+    public int maxProfit(int[] prices) {
+        int cost = Integer.MAX_VALUE, profit = 0;
+        for(int price : prices) {
+            cost = Math.min(cost, price);
+            profit = Math.max(profit, price - cost);
+        }
+        return profit;
     }
 }
