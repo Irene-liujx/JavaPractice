@@ -321,3 +321,29 @@ class Solution {
         return b;
     }
 }
+
+
+
+//两个数组的交集II
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int length1 = nums1.length, length2 = nums2.length;
+        int[] in = new int[Math.min(length1, length2)];
+        int index1 = 0, index2 = 0, index = 0;
+        while (index1 < length1 && index2 < length2) {
+            if (nums1[index1] < nums2[index2]) {
+                index1++;
+            } else if (nums1[index1] > nums2[index2]) {
+                index2++;
+            } else {
+                in[index] = nums1[index1];
+                index1++;
+                index2++;
+                index++;
+            }
+        }
+        return Arrays.copyOfRange(in, 0, index);
+    }
+}
