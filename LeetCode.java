@@ -922,3 +922,25 @@ class Solution {
         y.val = tmp;
     }
 }
+
+
+
+
+//计数二进制子串
+class Solution {
+    public int countBinarySubstrings(String s) {
+        int count = 1,last = 0,res = 0;
+        int n = s.length();
+        for(int i = 1;i < n;i++){
+            if(s.charAt(i) == s.charAt(i - 1)){
+                count++;
+            }else{
+                res += Math.min(last,count);
+                last = count;
+                count = 1;
+            }
+        }
+        res += Math.min(last,count);
+        return res;
+    }
+}
