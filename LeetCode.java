@@ -1202,3 +1202,47 @@ class Solution {
         }
     }
 }
+
+
+//扫雷游戏
+class Solution {
+    private int[][] dir = new int[][]{{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1},{1,0},{-1,0}};
+    private int m,n;
+    public char[][] updateBoard(char[][] board, int[] click) {
+         m = board.length;n = board[0].length;
+        char c = board[click[0]][click[1]];
+        if(c=='M') {
+            board[click[0]][click[1]] = 'X';
+            return board;
+        }
+        search(click[0],click[1],board);
+        return board;
+    }
+
+    public void check(int x,int y,char[][] board){
+        int count=0;
+        for(int[] d:dir){
+            int newx = x + d[0];
+            int newy = y + d[1];
+            if(newx<0 || newx>=m || newy<0 || newy>=n)
+                continue;
+            if(board[newx][newy]=='M')
+                ++count;
+        }
+        if(count==0) board[x][y] = 'B';
+        else board[x][y] = (char) (count + '0');
+    }
+
+    public void search(int x,int y,char[][] board){
+        check(x,y,board);
+        if(board[x][y] == 'B'){
+            for(int[] d:dir){
+                int newx = x + d[0];
+                int newy = y + d[1];
+                if(newx<0 || newx>=m || newy<0 || newy>=n || board[newx][newy]!='E')
+                    continue;
+                search(newx,newy,board);
+            }
+        }
+    }
+}
