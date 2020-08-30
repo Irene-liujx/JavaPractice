@@ -1364,3 +1364,20 @@ class Solution {
         c[x] = temp;
     }
 }
+
+
+
+//反转字符串中的单词III
+class Solution {
+    public String reverseWords(String s) {
+        if(s == null || s.length() == 0){
+            return "";
+        }
+        String[] words = s.split(" ");
+        StringBuffer sb = new StringBuffer();
+        for(String word : words){
+            sb.append(new StringBuilder(word).reverse().toString() + ' ');
+        }
+        return sb.delete(sb.length() - 1,sb.length()).toString();
+    }
+}
